@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderBentoSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ClassRoom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="className" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Student_Student" FromRole="ClassRoom" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitPrice" Type="Int32" Nullable="false" />
+    <Property Name="shopId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Shop" Relationship="Self.FK_Menu_Menu" FromRole="Menu" ToRole="Shop" />
+    <NavigationProperty Name="OrderDetial" Relationship="Self.FK_OrderDetial_Menu" FromRole="Menu" ToRole="OrderDetial" />
+    <NavigationProperty Name="FavoriteDetial" Relationship="OrderBentoSystemModel.FK_FavoriteDetial_Menu" FromRole="Menu" ToRole="FavoriteDetial" />
+    <Property Name="ImageFile" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="OrderState" Type="Int32" Nullable="false" />
+    <Property Name="InsertOrderDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="stuId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Order_Student" FromRole="Order" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="OrderDetial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stuId" Type="Int32" Nullable="false" />
+    <Property Name="MenuId" Type="Int32" Nullable="false" />
+    <Property Name="Num" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" />
+    <NavigationProperty Name="Menu" Relationship="Self.FK_OrderDetial_Menu" FromRole="OrderDetial" ToRole="Menu" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_OrderDetial_Student" FromRole="OrderDetial" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shopName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_Menu" FromRole="Shop" ToRole="Menu" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="classId" Type="Int32" Nullable="false" />
+    <Property Name="Authority" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ClassRoom" Relationship="Self.FK_Student_Student" FromRole="Student" ToRole="ClassRoom" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Student" FromRole="Student" ToRole="Order" />
+    <NavigationProperty Name="OrderDetial" Relationship="Self.FK_OrderDetial_Student" FromRole="Student" ToRole="OrderDetial" />
+    <NavigationProperty Name="Favorite" Relationship="OrderBentoSystemModel.FK_Favorite_Student" FromRole="Student" ToRole="Favorite" />
+  </EntityType>
+  <Association Name="FK_Student_Student">
+    <End Role="ClassRoom" Type="Self.ClassRoom" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassRoom">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="classId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_Menu">
+    <End Role="Shop" Type="Self.Shop" Multiplicity="1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shop">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="shopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetial_Menu">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="OrderDetial" Type="Self.OrderDetial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetial">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="stuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetial_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="OrderDetial" Type="Self.OrderDetial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetial">
+        <PropertyRef Name="stuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrderBentoSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ClassRoom" EntityType="Self.ClassRoom" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="OrderDetial" EntityType="Self.OrderDetial" />
+    <EntitySet Name="Shop" EntityType="Self.Shop" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <AssociationSet Name="FK_Student_Student" Association="Self.FK_Student_Student">
+      <End Role="ClassRoom" EntitySet="ClassRoom" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_Menu" Association="Self.FK_Menu_Menu">
+      <End Role="Shop" EntitySet="Shop" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetial_Menu" Association="Self.FK_OrderDetial_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="OrderDetial" EntitySet="OrderDetial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Student" Association="Self.FK_Order_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetial_Student" Association="Self.FK_OrderDetial_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="OrderDetial" EntitySet="OrderDetial" />
+    </AssociationSet>
+    <EntitySet Name="Favorite" EntityType="OrderBentoSystemModel.Favorite" />
+    <AssociationSet Name="FK_Favorite_Student" Association="OrderBentoSystemModel.FK_Favorite_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Favorite" EntitySet="Favorite" />
+    </AssociationSet>
+    <EntitySet Name="FavoriteDetial" EntityType="OrderBentoSystemModel.FavoriteDetial" />
+    <AssociationSet Name="FK_FavoriteDetial_Favorite" Association="OrderBentoSystemModel.FK_FavoriteDetial_Favorite">
+      <End Role="Favorite" EntitySet="Favorite" />
+      <End Role="FavoriteDetial" EntitySet="FavoriteDetial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FavoriteDetial_Menu" Association="OrderBentoSystemModel.FK_FavoriteDetial_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="FavoriteDetial" EntitySet="FavoriteDetial" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Favorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="stuId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="OrderBentoSystemModel.FK_Favorite_Student" FromRole="Favorite" ToRole="Student" />
+    <NavigationProperty Name="FavoriteDetial" Relationship="OrderBentoSystemModel.FK_FavoriteDetial_Favorite" FromRole="Favorite" ToRole="FavoriteDetial" />
+  </EntityType>
+  <Association Name="FK_Favorite_Student">
+    <End Type="OrderBentoSystemModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="OrderBentoSystemModel.Favorite" Role="Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="stuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FavoriteDetial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FavoriteId" Type="Int32" Nullable="false" />
+    <Property Name="MenuId" Type="Int32" Nullable="false" />
+    <Property Name="Num" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Favorite" Relationship="OrderBentoSystemModel.FK_FavoriteDetial_Favorite" FromRole="FavoriteDetial" ToRole="Favorite" />
+    <NavigationProperty Name="Menu" Relationship="OrderBentoSystemModel.FK_FavoriteDetial_Menu" FromRole="FavoriteDetial" ToRole="Menu" />
+  </EntityType>
+  <Association Name="FK_FavoriteDetial_Favorite">
+    <End Type="OrderBentoSystemModel.Favorite" Role="Favorite" Multiplicity="1" />
+    <End Type="OrderBentoSystemModel.FavoriteDetial" Role="FavoriteDetial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Favorite">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FavoriteDetial">
+        <PropertyRef Name="FavoriteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FavoriteDetial_Menu">
+    <End Type="OrderBentoSystemModel.Menu" Role="Menu" Multiplicity="1" />
+    <End Type="OrderBentoSystemModel.FavoriteDetial" Role="FavoriteDetial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FavoriteDetial">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

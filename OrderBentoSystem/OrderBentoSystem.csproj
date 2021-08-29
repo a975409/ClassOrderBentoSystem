@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D463AF17-21AB-4295-A003-944FB800C158}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OrderBentoSystem</RootNamespace>
+    <AssemblyName>OrderBentoSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassOrderForm.Designer.cs">
+      <DependentUpon>ClassOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FavoriteDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FavoriteDetailForm.Designer.cs">
+      <DependentUpon>FavoriteDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FavoriteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FavoriteForm.Designer.cs">
+      <DependentUpon>FavoriteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ClassRoom.cs">
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Favorite.cs">
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FavoriteDetial.cs">
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Menu.cs">
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OBSystem.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OBSystem.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OBSystem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OBSystem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OBSystem.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Order.cs">
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderDetial.cs">
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Shop.cs">
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Student.cs">
+      <DependentUpon>OBSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderDetailForm.Designer.cs">
+      <DependentUpon>OrderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectFavoriteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectFavoriteForm.Designer.cs">
+      <DependentUpon>SelectFavoriteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShopCarForm.Designer.cs">
+      <DependentUpon>ShopCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShopEditForm.Designer.cs">
+      <DependentUpon>ShopEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShopInfoForm.Designer.cs">
+      <DependentUpon>ShopInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopMarageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShopMarageForm.Designer.cs">
+      <DependentUpon>ShopMarageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ClassOrder.cs" />
+    <Compile Include="ViewModel\OrderView.cs" />
+    <Compile Include="ViewModel\ShopCar.cs" />
+    <EmbeddedResource Include="ClassOrderForm.resx">
+      <DependentUpon>ClassOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavoriteDetailForm.resx">
+      <DependentUpon>FavoriteDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavoriteForm.resx">
+      <DependentUpon>FavoriteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderDetailForm.resx">
+      <DependentUpon>OrderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SelectFavoriteForm.resx">
+      <DependentUpon>SelectFavoriteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShopCarForm.resx">
+      <DependentUpon>ShopCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShopEditForm.resx">
+      <DependentUpon>ShopEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShopInfoForm.resx">
+      <DependentUpon>ShopInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShopMarageForm.resx">
+      <DependentUpon>ShopMarageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\OBSystem.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OBSystem.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\OBSystem.edmx.diagram">
+      <DependentUpon>OBSystem.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\icons8_reset.ico" />
+    <Content Include="img\icons8_reset_32.png" />
+    <Content Include="Model\OBSystem.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OBSystem.edmx</DependentUpon>
+      <LastGenOutput>OBSystem.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\OBSystem.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OBSystem.edmx</DependentUpon>
+      <LastGenOutput>OBSystem.cs</LastGenOutput>
+    </Content>
+    <None Include="img\鐵板膳背.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
