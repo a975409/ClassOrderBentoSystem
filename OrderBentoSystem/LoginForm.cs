@@ -1,4 +1,5 @@
-﻿using OrderBentoSystem.Model;
+﻿using OrderBentoSystem.method;
+using OrderBentoSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,7 @@ namespace OrderBentoSystem
             TxtId.Focus();
             TxtId.Text = "s451556";
             TxtPwd.Text = "password";
+            rdbStudent.Checked = true;
         }
 
         private void BtnLogin_KeyDown(object sender, KeyEventArgs e)
@@ -48,31 +50,51 @@ namespace OrderBentoSystem
             using (OrderBentoSystemEntities db = new OrderBentoSystemEntities())
             {
                 LblMsg.Text = "正在驗證帳號密碼...";
-                var result = db.Student.Where(m => m.UserId == TxtId.Text && m.Password == TxtPwd.Text).FirstOrDefault();
 
-                if (result != null)
+                if (rdbStudent.Checked)
                 {
-                    int stuId = result.Id;
+                    string pwd = PasswordHelper.Encrypt(TxtPwd.Text);
+                    var result = db.Student.Where(m => m.UserId == TxtId.Text && m.Password == pwd).FirstOrDefault();
 
-                    //MessageBox.Show("登入成功");
-                    TxtId.Clear();
-                    TxtPwd.Clear();
-                    TxtId.Focus();
+                    if (result != null)
+                    {
+                        int stuId = result.Id;
 
-                    //取得stuId，並傳至MenuForm
-                    MainForm menu = new MainForm(stuId, this);
-                    this.Hide();
-                    menu.Show();
-                    //Console.WriteLine("秀出MenuForm");
-                    LblMsg.Text = "請輸入帳號密碼";
+                        //MessageBox.Show("登入成功");
+                        TxtId.Clear();
+                        TxtPwd.Clear();
+                        TxtId.Focus();
+
+                        //取得stuId，並傳至MenuForm
+                        MainForm menu = new MainForm(stuId, this);
+                        this.Hide();
+                        menu.Show();
+                        //Console.WriteLine("秀出MenuForm");
+                        LblMsg.Text = "請輸入帳號密碼";
+                    }
+                    else
+                    {
+                        LblMsg.Text = "登入失敗，請重新輸入帳號密碼";
+                        TxtId.Text = "";
+                        TxtPwd.Text = "";
+                    }
                 }
-                else
-                {
-                    LblMsg.Text = "登入失敗，請重新輸入帳號密碼";
-                    TxtId.Text = "";
-                    TxtPwd.Text = "";
+                else { 
+                
                 }
             }
+        }
+
+        private void LinkCreateUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegisterForm form = new RegisterForm();
+            form.ShowDialog();
+        }
+
+        private void LinkResetUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ResetUserForm form = new ResetUserForm();
+            form.ShowDialog();
         }
     }
 }

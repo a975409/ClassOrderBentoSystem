@@ -69,8 +69,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="stuName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="UserId" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="64" Nullable="false" />
     <Property Name="classId" Type="int" Nullable="false" />
     <Property Name="Authority" Type="int" Nullable="false" />
   </EntityType>

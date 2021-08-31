@@ -75,7 +75,7 @@ namespace OrderBentoSystem
             var order = _db.Order.Find(_orderId);
             var orderDetial = _db.OrderDetial.Where(m => m.OrderId == _orderId);
 
-            if (order.OrderState >= 0 && order.OrderState <= 1)
+            if (order.OrderState >= 0)
                 BtnCancel.Enabled = true;
             else
                 BtnCancel.Enabled = false;
@@ -124,6 +124,11 @@ namespace OrderBentoSystem
             order.OrderState = 4;
             _db.SaveChanges();
             this.Close();
+        }
+
+        private void OrderDetailForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

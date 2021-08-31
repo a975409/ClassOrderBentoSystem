@@ -121,5 +121,10 @@ namespace OrderBentoSystem
             _db.SaveChanges();
             MessageBox.Show("新增成功");
         }
+
+        private void FavoriteForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

@@ -94,6 +94,7 @@ namespace OrderBentoSystem
             this.Name = "ShopMarageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "店家管理";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShopMarageForm_FormClosing);
             this.Load += new System.EventHandler(this.ShopMarageForm_Load);
             this.ResumeLayout(false);
 

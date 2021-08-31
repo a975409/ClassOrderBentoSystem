@@ -143,6 +143,7 @@ namespace OrderBentoSystem
             }
 
             _db.Dispose();
+            this.Dispose();
         }
 
         /// <summary>

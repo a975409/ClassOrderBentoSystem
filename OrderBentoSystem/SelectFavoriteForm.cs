@@ -81,5 +81,10 @@ namespace OrderBentoSystem
             _db.SaveChanges();
             ReadFavorite();
         }
+
+        private void SelectFavoriteForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

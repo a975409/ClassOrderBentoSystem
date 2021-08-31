@@ -107,5 +107,9 @@ namespace OrderBentoSystem
             ReadFavoriteDetail();
         }
 
+        private void FavoriteDetailForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

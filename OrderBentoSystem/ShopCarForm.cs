@@ -189,5 +189,10 @@ namespace OrderBentoSystem
             _db.SaveChanges();
             this.Close();
         }
+
+        private void ShopCarForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
