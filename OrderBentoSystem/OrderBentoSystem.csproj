@@ -189,6 +189,12 @@
     <Compile Include="ShopMarageForm.Designer.cs">
       <DependentUpon>ShopMarageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemMarageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemMarageForm.Designer.cs">
+      <DependentUpon>SystemMarageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ClassOrder.cs" />
     <Compile Include="ViewModel\OrderView.cs" />
     <Compile Include="ViewModel\ShopCar.cs" />
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShopMarageForm.resx">
       <DependentUpon>ShopMarageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemMarageForm.resx">
+      <DependentUpon>SystemMarageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model\OBSystem.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

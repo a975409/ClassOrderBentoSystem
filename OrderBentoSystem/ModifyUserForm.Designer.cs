@@ -32,6 +32,8 @@ namespace OrderBentoSystem
             this.BtnClose = new System.Windows.Forms.Button();
             this.BtnOK = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LblPwdMsg = new System.Windows.Forms.Label();
+            this.LblUserMsg = new System.Windows.Forms.Label();
             this.BtnRandom = new System.Windows.Forms.Button();
             this.TxtNewPwd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,8 +44,6 @@ namespace OrderBentoSystem
             this.label1 = new System.Windows.Forms.Label();
             this.TxtOldId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.LblPwdMsg = new System.Windows.Forms.Label();
-            this.LblUserMsg = new System.Windows.Forms.Label();
             this.TxtstuName = new System.Windows.Forms.TextBox();
             this.TxtClass = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -91,6 +91,28 @@ namespace OrderBentoSystem
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "請設定新的帳號/密碼";
+            // 
+            // LblPwdMsg
+            // 
+            this.LblPwdMsg.BackColor = System.Drawing.Color.Yellow;
+            this.LblPwdMsg.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LblPwdMsg.ForeColor = System.Drawing.Color.Red;
+            this.LblPwdMsg.Location = new System.Drawing.Point(87, 143);
+            this.LblPwdMsg.Name = "LblPwdMsg";
+            this.LblPwdMsg.Size = new System.Drawing.Size(379, 27);
+            this.LblPwdMsg.TabIndex = 16;
+            this.LblPwdMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblUserMsg
+            // 
+            this.LblUserMsg.BackColor = System.Drawing.Color.Yellow;
+            this.LblUserMsg.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LblUserMsg.ForeColor = System.Drawing.Color.Red;
+            this.LblUserMsg.Location = new System.Drawing.Point(87, 74);
+            this.LblUserMsg.Name = "LblUserMsg";
+            this.LblUserMsg.Size = new System.Drawing.Size(379, 26);
+            this.LblUserMsg.TabIndex = 17;
+            this.LblUserMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnRandom
             // 
@@ -196,28 +218,6 @@ namespace OrderBentoSystem
             this.label2.TabIndex = 7;
             this.label2.Text = "密碼：";
             // 
-            // LblPwdMsg
-            // 
-            this.LblPwdMsg.BackColor = System.Drawing.Color.Yellow;
-            this.LblPwdMsg.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LblPwdMsg.ForeColor = System.Drawing.Color.Red;
-            this.LblPwdMsg.Location = new System.Drawing.Point(87, 143);
-            this.LblPwdMsg.Name = "LblPwdMsg";
-            this.LblPwdMsg.Size = new System.Drawing.Size(379, 27);
-            this.LblPwdMsg.TabIndex = 16;
-            this.LblPwdMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LblUserMsg
-            // 
-            this.LblUserMsg.BackColor = System.Drawing.Color.Yellow;
-            this.LblUserMsg.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LblUserMsg.ForeColor = System.Drawing.Color.Red;
-            this.LblUserMsg.Location = new System.Drawing.Point(87, 74);
-            this.LblUserMsg.Name = "LblUserMsg";
-            this.LblUserMsg.Size = new System.Drawing.Size(379, 26);
-            this.LblUserMsg.TabIndex = 17;
-            this.LblUserMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // TxtstuName
             // 
             this.TxtstuName.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -230,7 +230,7 @@ namespace OrderBentoSystem
             // TxtClass
             // 
             this.TxtClass.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TxtClass.Location = new System.Drawing.Point(68, 10);
+            this.TxtClass.Location = new System.Drawing.Point(110, 11);
             this.TxtClass.Name = "TxtClass";
             this.TxtClass.ReadOnly = true;
             this.TxtClass.Size = new System.Drawing.Size(135, 25);
@@ -254,9 +254,9 @@ namespace OrderBentoSystem
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(8, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 27);
+            this.label10.Size = new System.Drawing.Size(96, 27);
             this.label10.TabIndex = 20;
-            this.label10.Text = "班級";
+            this.label10.Text = "所屬單位";
             // 
             // ModifyUserForm
             // 

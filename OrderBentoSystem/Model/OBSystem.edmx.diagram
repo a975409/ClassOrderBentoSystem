@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="cfe7c58f296d444c90049ace93e486f4" Name="Diagram1">
-        <EntityTypeShape EntityType="OrderBentoSystemModel.ClassRoom" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderBentoSystemModel.Menu" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderBentoSystemModel.Order" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderBentoSystemModel.OrderDetial" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderBentoSystemModel.Shop" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderBentoSystemModel.Student" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderBentoSystemModel.ClassRoom" Width="1.5" PointX="0.875" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderBentoSystemModel.Menu" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderBentoSystemModel.Order" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderBentoSystemModel.OrderDetial" Width="1.5" PointX="9.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderBentoSystemModel.Shop" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderBentoSystemModel.Student" Width="1.5" PointX="3.125" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="OrderBentoSystemModel.FK_Student_Student" ManuallyRouted="false" />
         <AssociationConnector Association="OrderBentoSystemModel.FK_Menu_Menu" ManuallyRouted="false" />
         <AssociationConnector Association="OrderBentoSystemModel.FK_OrderDetial_Menu" ManuallyRouted="false" />
         <AssociationConnector Association="OrderBentoSystemModel.FK_Order_Student" ManuallyRouted="false" />
         <AssociationConnector Association="OrderBentoSystemModel.FK_OrderDetial_Student" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="OrderBentoSystemModel.Favorite" Width="1.5" PointX="5.25" PointY="7.125" />
+        <EntityTypeShape EntityType="OrderBentoSystemModel.Favorite" Width="1.5" PointX="5.25" PointY="5.75" />
         <AssociationConnector Association="OrderBentoSystemModel.FK_Favorite_Student" />
-        <EntityTypeShape EntityType="OrderBentoSystemModel.FavoriteDetial" Width="1.5" PointX="7.5" PointY="7.625" />
+        <EntityTypeShape EntityType="OrderBentoSystemModel.FavoriteDetial" Width="1.5" PointX="7.75" PointY="5.875" />
         <AssociationConnector Association="OrderBentoSystemModel.FK_FavoriteDetial_Favorite" />
         <AssociationConnector Association="OrderBentoSystemModel.FK_FavoriteDetial_Menu" />
       </Diagram>

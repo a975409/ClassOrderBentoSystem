@@ -31,6 +31,7 @@ namespace OrderBentoSystem
 
         private void ClassOrderForm_Load(object sender, EventArgs e)
         {
+            this.Text = _db.ClassRoom.Find(_classId).className + "的訂單管理";
             saveOrderDialog.Filter = "All Txt Files| *.txt";
             saveOrderDialog.DefaultExt = "*.txt";
             Page = 1;

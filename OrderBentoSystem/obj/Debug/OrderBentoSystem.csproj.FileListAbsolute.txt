@@ -75,3 +75,4 @@ D:\MyWork\ClassOrderBentoSystem\OrderBentoSystem\obj\Debug\OrderBentoSystem.pdb
 D:\MyWork\ClassOrderBentoSystem\OrderBentoSystem\obj\Debug\OrderBentoSystem.RegisterForm.resources
 D:\MyWork\ClassOrderBentoSystem\OrderBentoSystem\obj\Debug\OrderBentoSystem.ResetUserForm.resources
 D:\MyWork\ClassOrderBentoSystem\OrderBentoSystem\obj\Debug\OrderBentoSystem.ModifyUserForm.resources
+D:\MyWork\ClassOrderBentoSystem\OrderBentoSystem\obj\Debug\OrderBentoSystem.SystemMarageForm.resources

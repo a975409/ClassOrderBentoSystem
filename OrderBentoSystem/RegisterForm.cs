@@ -15,6 +15,7 @@ namespace OrderBentoSystem
 {
     public partial class RegisterForm : Form
     {
+        List<ClassRoom> classRooms;
         OrderBentoSystemEntities db = new OrderBentoSystemEntities();
         public RegisterForm()
         {
@@ -26,10 +27,10 @@ namespace OrderBentoSystem
             LblUserMsg.Visible = false;
             LblPwdMsg.Visible = false;
             CboClassItem.Items.Clear();
+            classRooms = db.ClassRoom.Where(m => m.Id > 0 && m.Student.Count() > 0).ToList();
+            var classNames = classRooms.Select(m => m.className);
 
-            var classrooms = db.ClassRoom.Select(m => m.className);
-
-            CboClassItem.Items.AddRange(classrooms.ToArray());
+            CboClassItem.Items.AddRange(classNames.ToArray());
             CboClassItem.SelectedIndex = 0;
         }
 
@@ -41,7 +42,7 @@ namespace OrderBentoSystem
         private void ReadStudents()
         {
             CboName.Items.Clear();
-            var classroom = db.ClassRoom.ToList()[CboClassItem.SelectedIndex];
+            var classroom = classRooms[CboClassItem.SelectedIndex];
             var students = classroom.Student.Select(m => m.stuName).ToArray();
             CboName.Items.AddRange(students);
             CboName.SelectedIndex = 0;
@@ -60,10 +61,10 @@ namespace OrderBentoSystem
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
-            var classroom = db.ClassRoom.ToList()[CboClassItem.SelectedIndex];
+            var classroom = classRooms[CboClassItem.SelectedIndex];
             var student = classroom.Student.ToList()[CboName.SelectedIndex];
 
-            if (student.UserId != "" && student.Password != "")
+            if (student.Authority != null)
             {
                 MessageBox.Show("此學生已註冊過帳號");
                 return;
@@ -79,6 +80,7 @@ namespace OrderBentoSystem
                 pwd = PasswordHelper.Encrypt(pwd);
                 student.UserId = userid;
                 student.Password = pwd;
+                student.Authority = 0;
                 db.SaveChanges();
                 MessageBox.Show("帳號註冊成功");
                 this.Close();
@@ -104,21 +106,25 @@ namespace OrderBentoSystem
             {
                 LblUserMsg.Visible = true;
                 LblUserMsg.Text = "帳號至少要7個字或以上";
+                TxtId.Text = "";
                 return false;
             }
             else if (!(userRgx.IsMatch(userid) && !undefineRgx.IsMatch(userid)))
             {
                 LblUserMsg.Visible = true;
                 LblUserMsg.Text = "帳號只能包含英文字母大小寫和數字";
+                TxtId.Text = "";
                 return false;
             }
             else if (db.Student.Any(m => m.UserId == userid))
             {
                 LblUserMsg.Visible = true;
                 LblUserMsg.Text = "此帳號已有人使用過，請設定其他帳號";
+                TxtId.Text = "";
                 return false;
             }
-            else {
+            else 
+            {
                 return true;
             }
         }
@@ -150,17 +156,32 @@ namespace OrderBentoSystem
             {
                 LblPwdMsg.Visible = true;
                 LblPwdMsg.Text = "密碼至少要8個字或以上";
+                TxtPwd.Text = "";
+                TxtAgainPwd.Text = "";
                 return false;
             }
             else if (!(lowerengRgx.IsMatch(pwd) && capitalengRgx.IsMatch(pwd) && numRgx.IsMatch(pwd) && otherRgx.IsMatch(pwd) && !pwdRgx.IsMatch(pwd)))
             {
                 LblPwdMsg.Visible = true;
                 LblPwdMsg.Text = "密碼必須包含英文字母大小寫、數字和特殊符號";
+                TxtPwd.Text = "";
+                TxtAgainPwd.Text = "";
                 return false;
             }
-            else {
+            else if (TxtPwd.Text == TxtAgainPwd.Text)
+            {
+                LblPwdMsg.Visible = true;
+                LblPwdMsg.Text = "兩邊輸入的密碼不一致，請重新輸入";
+                TxtPwd.Text = "";
+                TxtAgainPwd.Text = "";
+                return false;
+            }
+            else
+            {
                 return true;
             }
         }
+        
+
     }
 }

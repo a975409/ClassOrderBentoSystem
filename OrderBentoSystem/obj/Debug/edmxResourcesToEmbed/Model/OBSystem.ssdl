@@ -69,10 +69,10 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="stuName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="10" />
+    <Property Name="Password" Type="nvarchar" MaxLength="64" />
+    <Property Name="Authority" Type="int" />
     <Property Name="classId" Type="int" Nullable="false" />
-    <Property Name="Authority" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Favorite_Student">
     <End Role="Student" Type="Self.Student" Multiplicity="1" />

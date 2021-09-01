@@ -33,7 +33,7 @@ namespace OrderBentoSystem
             TxtstuName.Text = stu.stuName;
             TxtClass.Text = stu.ClassRoom.className;
 
-            if (stu.Authority == 0)
+            if (stu.Authority==null || stu.Authority == 0)
             {
                 BtnShopList.Enabled = false;
                 BtnClassOrder.Enabled = false;

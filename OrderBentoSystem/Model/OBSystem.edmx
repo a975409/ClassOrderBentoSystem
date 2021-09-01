@@ -74,10 +74,10 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="stuName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="10" />
+          <Property Name="Password" Type="nvarchar" MaxLength="64" />
+          <Property Name="Authority" Type="int" />
           <Property Name="classId" Type="int" Nullable="false" />
-          <Property Name="Authority" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Favorite_Student">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
@@ -281,10 +281,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="stuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="classId" Type="Int32" Nullable="false" />
-          <Property Name="Authority" Type="Int32" Nullable="false" />
+          <Property Name="Authority" Type="Int32" />
           <NavigationProperty Name="ClassRoom" Relationship="Self.FK_Student_Student" FromRole="Student" ToRole="ClassRoom" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Student" FromRole="Student" ToRole="Order" />
           <NavigationProperty Name="OrderDetial" Relationship="Self.FK_OrderDetial_Student" FromRole="Student" ToRole="OrderDetial" />

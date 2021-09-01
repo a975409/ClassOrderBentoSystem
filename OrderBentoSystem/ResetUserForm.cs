@@ -18,6 +18,8 @@ namespace OrderBentoSystem
     public partial class ResetUserForm : Form
     {
         OrderBentoSystemEntities db = new OrderBentoSystemEntities();
+        List<ClassRoom> classRooms;//存放有註冊帳號學生的班級
+        List<Student> students;//班級內有註冊帳號的學生
         public ResetUserForm()
         {
             InitializeComponent();
@@ -27,9 +29,12 @@ namespace OrderBentoSystem
         {
             CboClassItem.Items.Clear();
 
-            var classrooms = db.ClassRoom.Select(m => m.className);
+            classRooms = db.ClassRoom.Where(m => m.Id > 0 && m.Student.Count() > 0 && m.Student.Any(a => a.Authority != null)).ToList();
 
-            CboClassItem.Items.AddRange(classrooms.ToArray());
+
+            var classNames = classRooms.Select(m => m.className);
+
+            CboClassItem.Items.AddRange(classNames.ToArray());
             CboClassItem.SelectedIndex = 0;
         }
 
@@ -41,9 +46,11 @@ namespace OrderBentoSystem
         private void ReadStudents()
         {
             CboName.Items.Clear();
-            var classroom = db.ClassRoom.ToList()[CboClassItem.SelectedIndex];
-            var students = classroom.Student.Select(m => m.stuName).ToArray();
-            CboName.Items.AddRange(students);
+            students.Clear();
+            var classroom = classRooms[CboClassItem.SelectedIndex];
+            students = classroom.Student.Where(m => m.Authority != null).ToList();
+            var stuNames = students.Select(m => m.stuName).ToArray();
+            CboName.Items.AddRange(stuNames);
             CboName.SelectedIndex = 0;
         }
 
@@ -60,8 +67,8 @@ namespace OrderBentoSystem
             if (dialog == DialogResult.No)
                 return;
 
-            var classroom = db.ClassRoom.ToList()[CboClassItem.SelectedIndex];
-            var student = classroom.Student.ToList()[CboName.SelectedIndex];
+            //var classroom = classRooms[CboClassItem.SelectedIndex];
+            var student = students[CboName.SelectedIndex];
 
             student.UserId = TxtId.Text;
             string pwd = TxtPwd.Text;

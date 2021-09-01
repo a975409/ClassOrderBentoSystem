@@ -38,10 +38,6 @@ namespace OrderBentoSystem
             this.BtnExit = new System.Windows.Forms.Button();
             this.LblMsg = new System.Windows.Forms.Label();
             this.LinkCreateUser = new System.Windows.Forms.LinkLabel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbSystem = new System.Windows.Forms.RadioButton();
-            this.rdbStudent = new System.Windows.Forms.RadioButton();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TxtId
@@ -56,7 +52,7 @@ namespace OrderBentoSystem
             // TxtPwd
             // 
             this.TxtPwd.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TxtPwd.Location = new System.Drawing.Point(29, 121);
+            this.TxtPwd.Location = new System.Drawing.Point(29, 120);
             this.TxtPwd.Name = "TxtPwd";
             this.TxtPwd.PasswordChar = '*';
             this.TxtPwd.Size = new System.Drawing.Size(420, 33);
@@ -69,7 +65,7 @@ namespace OrderBentoSystem
             this.LinkResetUser.AutoSize = true;
             this.LinkResetUser.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LinkResetUser.LinkColor = System.Drawing.Color.Aqua;
-            this.LinkResetUser.Location = new System.Drawing.Point(337, 98);
+            this.LinkResetUser.Location = new System.Drawing.Point(252, 156);
             this.LinkResetUser.Name = "LinkResetUser";
             this.LinkResetUser.Size = new System.Drawing.Size(112, 20);
             this.LinkResetUser.TabIndex = 2;
@@ -80,7 +76,7 @@ namespace OrderBentoSystem
             // BtnLogin
             // 
             this.BtnLogin.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnLogin.Location = new System.Drawing.Point(245, 223);
+            this.BtnLogin.Location = new System.Drawing.Point(245, 216);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(130, 35);
             this.BtnLogin.TabIndex = 3;
@@ -114,7 +110,7 @@ namespace OrderBentoSystem
             // BtnExit
             // 
             this.BtnExit.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnExit.Location = new System.Drawing.Point(109, 223);
+            this.BtnExit.Location = new System.Drawing.Point(109, 216);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(130, 35);
             this.BtnExit.TabIndex = 3;
@@ -127,7 +123,7 @@ namespace OrderBentoSystem
             this.LblMsg.BackColor = System.Drawing.Color.Yellow;
             this.LblMsg.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LblMsg.ForeColor = System.Drawing.Color.Red;
-            this.LblMsg.Location = new System.Drawing.Point(28, 189);
+            this.LblMsg.Location = new System.Drawing.Point(28, 185);
             this.LblMsg.Name = "LblMsg";
             this.LblMsg.Size = new System.Drawing.Size(421, 25);
             this.LblMsg.TabIndex = 5;
@@ -140,49 +136,13 @@ namespace OrderBentoSystem
             this.LinkCreateUser.AutoSize = true;
             this.LinkCreateUser.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LinkCreateUser.LinkColor = System.Drawing.Color.Aqua;
-            this.LinkCreateUser.Location = new System.Drawing.Point(376, 19);
+            this.LinkCreateUser.Location = new System.Drawing.Point(143, 156);
             this.LinkCreateUser.Name = "LinkCreateUser";
             this.LinkCreateUser.Size = new System.Drawing.Size(73, 20);
             this.LinkCreateUser.TabIndex = 2;
             this.LinkCreateUser.TabStop = true;
             this.LinkCreateUser.Text = "註冊帳號";
             this.LinkCreateUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkCreateUser_LinkClicked);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rdbSystem);
-            this.groupBox1.Controls.Add(this.rdbStudent);
-            this.groupBox1.Location = new System.Drawing.Point(29, 147);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(420, 45);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            // 
-            // rdbSystem
-            // 
-            this.rdbSystem.AutoSize = true;
-            this.rdbSystem.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.rdbSystem.ForeColor = System.Drawing.Color.White;
-            this.rdbSystem.Location = new System.Drawing.Point(207, 15);
-            this.rdbSystem.Name = "rdbSystem";
-            this.rdbSystem.Size = new System.Drawing.Size(139, 24);
-            this.rdbSystem.TabIndex = 0;
-            this.rdbSystem.TabStop = true;
-            this.rdbSystem.Text = "系統管理員登入";
-            this.rdbSystem.UseVisualStyleBackColor = true;
-            // 
-            // rdbStudent
-            // 
-            this.rdbStudent.AutoSize = true;
-            this.rdbStudent.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.rdbStudent.ForeColor = System.Drawing.Color.White;
-            this.rdbStudent.Location = new System.Drawing.Point(110, 15);
-            this.rdbStudent.Name = "rdbStudent";
-            this.rdbStudent.Size = new System.Drawing.Size(91, 24);
-            this.rdbStudent.TabIndex = 0;
-            this.rdbStudent.TabStop = true;
-            this.rdbStudent.Text = "學生登入";
-            this.rdbStudent.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
@@ -191,7 +151,6 @@ namespace OrderBentoSystem
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(481, 269);
             this.Controls.Add(this.TxtPwd);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LinkResetUser);
             this.Controls.Add(this.LblMsg);
             this.Controls.Add(this.label2);
@@ -206,8 +165,6 @@ namespace OrderBentoSystem
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnLogin_KeyDown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,9 +180,6 @@ namespace OrderBentoSystem
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Label LblMsg;
         private System.Windows.Forms.LinkLabel LinkCreateUser;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rdbSystem;
-        private System.Windows.Forms.RadioButton rdbStudent;
     }
 }
 

@@ -27,7 +27,7 @@ namespace OrderBentoSystem.Model
         public string UserId { get; set; }
         public string Password { get; set; }
         public int classId { get; set; }
-        public int Authority { get; set; }
+        public Nullable<int> Authority { get; set; }
     
         public virtual ClassRoom ClassRoom { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
