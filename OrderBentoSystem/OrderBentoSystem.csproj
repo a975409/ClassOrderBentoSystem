@@ -127,6 +127,12 @@
     <Compile Include="Model\Student.cs">
       <DependentUpon>OBSystem.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModifyUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyUserForm.Designer.cs">
+      <DependentUpon>ModifyUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyUserForm.resx">
+      <DependentUpon>ModifyUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderDetailForm.resx">
       <DependentUpon>OrderDetailForm.cs</DependentUpon>

@@ -328,5 +328,11 @@ namespace OrderBentoSystem
             ShopInfoForm form = new ShopInfoForm(shopId, "查看店家資訊");
             form.ShowDialog();
         }
+
+        private void BtnAccount_Click(object sender, EventArgs e)
+        {
+            ModifyUserForm form = new ModifyUserForm(_stuId);
+            form.ShowDialog();
+        }
     }
 }

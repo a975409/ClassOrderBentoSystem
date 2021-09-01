@@ -36,7 +36,7 @@ namespace OrderBentoSystem
         {
             TxtId.Focus();
             TxtId.Text = "s451556";
-            TxtPwd.Text = "password";
+            TxtPwd.Text = "$0Password";
             rdbStudent.Checked = true;
         }
 
@@ -54,6 +54,7 @@ namespace OrderBentoSystem
                 if (rdbStudent.Checked)
                 {
                     string pwd = PasswordHelper.Encrypt(TxtPwd.Text);
+                    Console.WriteLine(pwd);
                     var result = db.Student.Where(m => m.UserId == TxtId.Text && m.Password == pwd).FirstOrDefault();
 
                     if (result != null)
