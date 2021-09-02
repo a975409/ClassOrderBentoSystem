@@ -17,8 +17,8 @@ namespace OrderBentoSystem.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Menu()
         {
-            this.OrderDetial = new HashSet<OrderDetial>();
             this.FavoriteDetial = new HashSet<FavoriteDetial>();
+            this.OrderDetial = new HashSet<OrderDetial>();
         }
     
         public int Id { get; set; }
@@ -27,10 +27,10 @@ namespace OrderBentoSystem.Model
         public int shopId { get; set; }
         public byte[] ImageFile { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FavoriteDetial> FavoriteDetial { get; set; }
         public virtual Shop Shop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetial> OrderDetial { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FavoriteDetial> FavoriteDetial { get; set; }
     }
 }

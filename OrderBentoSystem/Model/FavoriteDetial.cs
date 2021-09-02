@@ -16,7 +16,7 @@ namespace OrderBentoSystem.Model
     {
         public int Id { get; set; }
         public int FavoriteId { get; set; }
-        public int MenuId { get; set; }
+        public Nullable<int> MenuId { get; set; }
         public int Num { get; set; }
     
         public virtual Favorite Favorite { get; set; }

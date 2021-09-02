@@ -80,8 +80,10 @@ namespace OrderBentoSystem
             else
                 BtnCancel.Enabled = false;
 
-            OrderView view = new OrderView();
-            view.orderState = order.OrderState.ToString();
+            OrderView view = new OrderView
+            {
+                orderState = order.OrderState.ToString()
+            };
 
             TxtOrderState.Text = view.orderState;
             TxtOrderDate.Text = order.OrderDate.ToString("d");
@@ -89,6 +91,12 @@ namespace OrderBentoSystem
 
             foreach (var item in orderDetial)
             {
+                if (item.MenuId == null)
+                {
+                    LsvOrderDetial.Items.Add(new ListViewItem("此商品已下架"));
+                    continue;
+                }
+
                 var menu = _db.Menu.Find(item.MenuId);
                 var shop = menu.Shop;
 

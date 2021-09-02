@@ -26,12 +26,12 @@ namespace OrderBentoSystem.Model
         }
     
         public virtual DbSet<ClassRoom> ClassRoom { get; set; }
+        public virtual DbSet<Favorite> Favorite { get; set; }
+        public virtual DbSet<FavoriteDetial> FavoriteDetial { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderDetial> OrderDetial { get; set; }
         public virtual DbSet<Shop> Shop { get; set; }
         public virtual DbSet<Student> Student { get; set; }
-        public virtual DbSet<Favorite> Favorite { get; set; }
-        public virtual DbSet<FavoriteDetial> FavoriteDetial { get; set; }
     }
 }

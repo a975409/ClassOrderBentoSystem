@@ -89,43 +89,43 @@
     <Compile Include="method\PasswordHelper.cs" />
     <Compile Include="method\RNG.cs" />
     <Compile Include="Model\ClassRoom.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Favorite.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FavoriteDetial.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Menu.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OBSystem.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OBSystem.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OBSystem.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OBSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OBSystem.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OBSystem.edmx</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Order.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderBentoSystem.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderBentoSystem.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderBentoSystem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderBentoSystem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderBentoSystem.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\OrderDetial.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Shop.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="ModifyUserForm.cs">
       <SubType>Form</SubType>
@@ -256,12 +256,12 @@
     <EmbeddedResource Include="SystemMarageForm.resx">
       <DependentUpon>SystemMarageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\OBSystem.edmx">
+    <EntityDeploy Include="Model\OrderBentoSystem.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OBSystem.Designer.cs</LastGenOutput>
+      <LastGenOutput>OrderBentoSystem.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\OBSystem.edmx.diagram">
-      <DependentUpon>OBSystem.edmx</DependentUpon>
+    <None Include="Model\OrderBentoSystem.edmx.diagram">
+      <DependentUpon>OrderBentoSystem.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -280,15 +280,15 @@
   <ItemGroup>
     <Content Include="img\icons8_reset.ico" />
     <Content Include="img\icons8_reset_32.png" />
-    <Content Include="Model\OBSystem.Context.tt">
+    <Content Include="Model\OrderBentoSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OBSystem.edmx</DependentUpon>
-      <LastGenOutput>OBSystem.Context.cs</LastGenOutput>
+      <DependentUpon>OrderBentoSystem.edmx</DependentUpon>
+      <LastGenOutput>OrderBentoSystem.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\OBSystem.tt">
+    <Content Include="Model\OrderBentoSystem.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OBSystem.edmx</DependentUpon>
-      <LastGenOutput>OBSystem.cs</LastGenOutput>
+      <DependentUpon>OrderBentoSystem.edmx</DependentUpon>
+      <LastGenOutput>OrderBentoSystem.cs</LastGenOutput>
     </Content>
     <None Include="img\鐵板膳背.jpg" />
   </ItemGroup>

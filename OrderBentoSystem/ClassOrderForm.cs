@@ -90,8 +90,12 @@ namespace OrderBentoSystem
                 int totalPrice = 0;
                 var orderdetial = _db.OrderDetial.Where(m => m.OrderId == item.Id);
 
+                //計算總價
                 foreach (var detial in orderdetial)
                 {
+                    if (detial.MenuId == null)
+                        continue;
+
                     var menu = _db.Menu.Find(detial.MenuId);
                     totalPrice += menu.UnitPrice * detial.Num;
                 }
@@ -336,7 +340,7 @@ namespace OrderBentoSystem
 
                             ClassOrder classOrder = new ClassOrder
                             {
-                                menuId = detial.Key,
+                                menuId = (int)detial.Key,
                                 count = count
                             };
 

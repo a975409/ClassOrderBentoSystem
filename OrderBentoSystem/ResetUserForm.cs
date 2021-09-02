@@ -46,7 +46,7 @@ namespace OrderBentoSystem
         private void ReadStudents()
         {
             CboName.Items.Clear();
-            students.Clear();
+            students?.Clear();
             var classroom = classRooms[CboClassItem.SelectedIndex];
             students = classroom.Student.Where(m => m.Authority != null).ToList();
             var stuNames = students.Select(m => m.stuName).ToArray();

@@ -17,24 +17,24 @@ namespace OrderBentoSystem.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Student()
         {
+            this.Favorite = new HashSet<Favorite>();
             this.Order = new HashSet<Order>();
             this.OrderDetial = new HashSet<OrderDetial>();
-            this.Favorite = new HashSet<Favorite>();
         }
     
         public int Id { get; set; }
         public string stuName { get; set; }
         public string UserId { get; set; }
         public string Password { get; set; }
-        public int classId { get; set; }
         public Nullable<int> Authority { get; set; }
+        public int classId { get; set; }
     
         public virtual ClassRoom ClassRoom { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Favorite> Favorite { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetial> OrderDetial { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Favorite> Favorite { get; set; }
     }
 }

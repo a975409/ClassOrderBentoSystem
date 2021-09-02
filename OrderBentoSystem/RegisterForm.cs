@@ -16,6 +16,7 @@ namespace OrderBentoSystem
     public partial class RegisterForm : Form
     {
         List<ClassRoom> classRooms;
+        List<Student> students;
         OrderBentoSystemEntities db = new OrderBentoSystemEntities();
         public RegisterForm()
         {
@@ -27,7 +28,7 @@ namespace OrderBentoSystem
             LblUserMsg.Visible = false;
             LblPwdMsg.Visible = false;
             CboClassItem.Items.Clear();
-            classRooms = db.ClassRoom.Where(m => m.Id > 0 && m.Student.Count() > 0).ToList();
+            classRooms = db.ClassRoom.Where(m => m.Id > 0 && m.Student.Count() > 0 && m.Student.Any(a => a.Authority == null)).ToList();
             var classNames = classRooms.Select(m => m.className);
 
             CboClassItem.Items.AddRange(classNames.ToArray());
@@ -43,8 +44,8 @@ namespace OrderBentoSystem
         {
             CboName.Items.Clear();
             var classroom = classRooms[CboClassItem.SelectedIndex];
-            var students = classroom.Student.Select(m => m.stuName).ToArray();
-            CboName.Items.AddRange(students);
+            students = classroom.Student.Where(m => m.Authority == null).ToList();
+            CboName.Items.AddRange(students.Select(m => m.stuName).ToArray());
             CboName.SelectedIndex = 0;
         }
 
@@ -61,8 +62,7 @@ namespace OrderBentoSystem
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
-            var classroom = classRooms[CboClassItem.SelectedIndex];
-            var student = classroom.Student.ToList()[CboName.SelectedIndex];
+            var student = students[CboName.SelectedIndex];
 
             if (student.Authority != null)
             {
@@ -168,7 +168,7 @@ namespace OrderBentoSystem
                 TxtAgainPwd.Text = "";
                 return false;
             }
-            else if (TxtPwd.Text == TxtAgainPwd.Text)
+            else if (TxtPwd.Text != TxtAgainPwd.Text)
             {
                 LblPwdMsg.Visible = true;
                 LblPwdMsg.Text = "兩邊輸入的密碼不一致，請重新輸入";
