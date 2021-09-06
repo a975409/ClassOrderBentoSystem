@@ -35,8 +35,8 @@ namespace OrderBentoSystem
         private void LoginForm_Load(object sender, EventArgs e)
         {
             TxtId.Focus();
-            TxtId.Text = "a975409";
-            TxtPwd.Text = "acs856745";
+            TxtId.Text = "TvHU36Tes";
+            TxtPwd.Text = "L<&Ulm55o";
         }
 
         private void BtnLogin_KeyDown(object sender, KeyEventArgs e)
