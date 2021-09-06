@@ -190,7 +190,7 @@ namespace OrderBentoSystem
             // 
             // PicMenu
             // 
-            this.PicMenu.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.PicMenu.BackColor = System.Drawing.Color.White;
             this.PicMenu.Location = new System.Drawing.Point(7, 19);
             this.PicMenu.Name = "PicMenu";
             this.PicMenu.Size = new System.Drawing.Size(150, 150);
@@ -326,7 +326,7 @@ namespace OrderBentoSystem
             this.BtnInsert.UseVisualStyleBackColor = true;
             this.BtnInsert.Click += new System.EventHandler(this.BtnInsert_Click);
             // 
-            // ShopForm
+            // ShopEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -336,7 +336,7 @@ namespace OrderBentoSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ShopForm";
+            this.Name = "ShopEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "修改店家資訊";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShopForm_FormClosing);

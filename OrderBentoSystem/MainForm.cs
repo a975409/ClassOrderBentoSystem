@@ -47,6 +47,10 @@ namespace OrderBentoSystem
         /// </summary>
         private void ReadShop()
         {
+            //重新載入實體，修正在店家管理修改完菜單後，回到主畫面資料沒有更新的問題
+            foreach (var item in db.ChangeTracker.Entries())
+                item.Reload();
+
             CboShopItem.Items.Clear();
             CboShopItem.SelectedIndex = -1;
             var shopNames = db.Shop.Select(m => m.shopName).ToArray();
