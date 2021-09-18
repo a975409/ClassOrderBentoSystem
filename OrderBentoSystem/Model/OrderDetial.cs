@@ -16,7 +16,7 @@ namespace OrderBentoSystem.Model
     {
         public int Id { get; set; }
         public int stuId { get; set; }
-        public int MenuId { get; set; }
+        public Nullable<int> MenuId { get; set; }
         public int Num { get; set; }
         public Nullable<int> OrderId { get; set; }
     

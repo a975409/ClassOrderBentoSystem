@@ -59,8 +59,12 @@ namespace OrderBentoSystem
                 int totalPrice = 0;
                 var orderdetial = _db.OrderDetial.Where(m => m.OrderId == item.Id);
 
+                //計算總價
                 foreach (var detial in orderdetial)
                 {
+                    if (detial.MenuId == null)
+                        continue;
+
                     var menu = _db.Menu.Find(detial.MenuId);
                     totalPrice += menu.UnitPrice * detial.Num;
                 }
@@ -119,7 +123,7 @@ namespace OrderBentoSystem
             linkOrderDetial.LinkClicked += LinkOrderDetial_LinkClicked;
             box.Controls.Add(linkOrderDetial);
 
-            if (view.orderState == "待確認" || view.orderState == "已確認")
+            if (view.orderState == "待確認")
             {
                 LinkLabel linkCancal = new LinkLabel();
                 linkCancal.Font = new Font("微軟正黑體", 9.0f);
@@ -217,6 +221,11 @@ namespace OrderBentoSystem
         {
             LinkLblBack.Visible = Page > 1;
             LinkLblNext.Visible = Page < count / page_Len || (Page == count / page_Len && count % page_Len > 0);
+        }
+
+        private void OrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

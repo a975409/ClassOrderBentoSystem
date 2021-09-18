@@ -94,6 +94,7 @@ namespace OrderBentoSystem
             this.Name = "FavoriteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "我的最愛管理";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FavoriteForm_FormClosing);
             this.Load += new System.EventHandler(this.FavoriteForm_Load);
             this.ResumeLayout(false);
 

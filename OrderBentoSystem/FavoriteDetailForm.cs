@@ -61,6 +61,13 @@ namespace OrderBentoSystem
             int total = 0;
             foreach (var item in detial)
             {
+                if (item.MenuId == null)
+                {
+                    fdIds.Add(item.Id);
+                    LsvFavoriteDetial.Items.Add(new ListViewItem("此商品已下架"));
+                    continue;
+                }
+
                 var menu = item.Menu;
                 var shop = menu.Shop;
 
@@ -107,5 +114,9 @@ namespace OrderBentoSystem
             ReadFavoriteDetail();
         }
 
+        private void FavoriteDetailForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

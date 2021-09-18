@@ -86,44 +86,52 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="method\PasswordHelper.cs" />
+    <Compile Include="method\RNG.cs" />
     <Compile Include="Model\ClassRoom.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Favorite.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FavoriteDetial.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Menu.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OBSystem.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OBSystem.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OBSystem.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OBSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OBSystem.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OBSystem.edmx</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Order.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderBentoSystem.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderBentoSystem.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderBentoSystem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderBentoSystem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderBentoSystem.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\OrderDetial.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Shop.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>OBSystem.tt</DependentUpon>
+      <DependentUpon>OrderBentoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyUserForm.Designer.cs">
+      <DependentUpon>ModifyUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OrderDetailForm.cs">
       <SubType>Form</SubType>
@@ -139,6 +147,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResetUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetUserForm.Designer.cs">
+      <DependentUpon>ResetUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SelectFavoriteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +189,12 @@
     <Compile Include="ShopMarageForm.Designer.cs">
       <DependentUpon>ShopMarageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemMarageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemMarageForm.Designer.cs">
+      <DependentUpon>SystemMarageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ClassOrder.cs" />
     <Compile Include="ViewModel\OrderView.cs" />
     <Compile Include="ViewModel\ShopCar.cs" />
@@ -187,6 +213,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModifyUserForm.resx">
+      <DependentUpon>ModifyUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderDetailForm.resx">
       <DependentUpon>OrderDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +232,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResetUserForm.resx">
+      <DependentUpon>ResetUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SelectFavoriteForm.resx">
       <DependentUpon>SelectFavoriteForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,12 +253,15 @@
     <EmbeddedResource Include="ShopMarageForm.resx">
       <DependentUpon>ShopMarageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\OBSystem.edmx">
+    <EmbeddedResource Include="SystemMarageForm.resx">
+      <DependentUpon>SystemMarageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\OrderBentoSystem.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OBSystem.Designer.cs</LastGenOutput>
+      <LastGenOutput>OrderBentoSystem.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\OBSystem.edmx.diagram">
-      <DependentUpon>OBSystem.edmx</DependentUpon>
+    <None Include="Model\OrderBentoSystem.edmx.diagram">
+      <DependentUpon>OrderBentoSystem.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -242,15 +280,15 @@
   <ItemGroup>
     <Content Include="img\icons8_reset.ico" />
     <Content Include="img\icons8_reset_32.png" />
-    <Content Include="Model\OBSystem.Context.tt">
+    <Content Include="Model\OrderBentoSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OBSystem.edmx</DependentUpon>
-      <LastGenOutput>OBSystem.Context.cs</LastGenOutput>
+      <DependentUpon>OrderBentoSystem.edmx</DependentUpon>
+      <LastGenOutput>OrderBentoSystem.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\OBSystem.tt">
+    <Content Include="Model\OrderBentoSystem.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OBSystem.edmx</DependentUpon>
-      <LastGenOutput>OBSystem.cs</LastGenOutput>
+      <DependentUpon>OrderBentoSystem.edmx</DependentUpon>
+      <LastGenOutput>OrderBentoSystem.cs</LastGenOutput>
     </Content>
     <None Include="img\鐵板膳背.jpg" />
   </ItemGroup>

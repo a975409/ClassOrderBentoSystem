@@ -1,4 +1,5 @@
-﻿using OrderBentoSystem.Model;
+﻿using OrderBentoSystem.method;
+using OrderBentoSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,8 +35,8 @@ namespace OrderBentoSystem
         private void LoginForm_Load(object sender, EventArgs e)
         {
             TxtId.Focus();
-            TxtId.Text = "s451556";
-            TxtPwd.Text = "password";
+            TxtId.Text = "TvHU36Tes";
+            TxtPwd.Text = "L<&Ulm55o";
         }
 
         private void BtnLogin_KeyDown(object sender, KeyEventArgs e)
@@ -48,21 +49,33 @@ namespace OrderBentoSystem
             using (OrderBentoSystemEntities db = new OrderBentoSystemEntities())
             {
                 LblMsg.Text = "正在驗證帳號密碼...";
-                var result = db.Student.Where(m => m.UserId == TxtId.Text && m.Password == TxtPwd.Text).FirstOrDefault();
+
+                string pwd = PasswordHelper.Encrypt(TxtPwd.Text);
+                Console.WriteLine(pwd);
+                var result = db.Student.Where(m => m.UserId == TxtId.Text && m.Password == pwd).FirstOrDefault();
 
                 if (result != null)
                 {
                     int stuId = result.Id;
 
                     //MessageBox.Show("登入成功");
-                    TxtId.Clear();
-                    TxtPwd.Clear();
+                    //TxtId.Clear();
+                    //TxtPwd.Clear();
                     TxtId.Focus();
 
-                    //取得stuId，並傳至MenuForm
-                    MainForm menu = new MainForm(stuId, this);
-                    this.Hide();
-                    menu.Show();
+                    if (result.Authority == 2)
+                    {
+                        SystemMarageForm form = new SystemMarageForm(stuId, this);
+                        this.Hide();
+                        form.Show();
+                    }
+                    else
+                    {
+                        //取得stuId，並傳至MenuForm
+                        MainForm menu = new MainForm(stuId, this);
+                        this.Hide();
+                        menu.Show();
+                    }
                     //Console.WriteLine("秀出MenuForm");
                     LblMsg.Text = "請輸入帳號密碼";
                 }
@@ -73,6 +86,18 @@ namespace OrderBentoSystem
                     TxtPwd.Text = "";
                 }
             }
+        }
+
+        private void LinkCreateUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegisterForm form = new RegisterForm();
+            form.ShowDialog();
+        }
+
+        private void LinkResetUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ResetUserForm form = new ResetUserForm();
+            form.ShowDialog();
         }
     }
 }

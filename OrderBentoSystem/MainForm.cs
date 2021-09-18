@@ -33,7 +33,7 @@ namespace OrderBentoSystem
             TxtstuName.Text = stu.stuName;
             TxtClass.Text = stu.ClassRoom.className;
 
-            if (stu.Authority == 0)
+            if (stu.Authority==null || stu.Authority == 0)
             {
                 BtnShopList.Enabled = false;
                 BtnClassOrder.Enabled = false;
@@ -49,6 +49,7 @@ namespace OrderBentoSystem
         {
             CboShopItem.Items.Clear();
             CboShopItem.SelectedIndex = -1;
+
             var shopNames = db.Shop.Select(m => m.shopName).ToArray();
             CboShopItem.Items.AddRange(shopNames);
             CboShopItem.SelectedIndex = 0;
@@ -68,10 +69,12 @@ namespace OrderBentoSystem
             splitContainer2.Panel2.Controls.Clear();
 
             //從資料庫找到所選店家
-            var selectShop = db.Shop.ToList()[index];
+            var selectShop = db.Shop.Select(m => m).ToArray()[index];
 
             //根據shopId搜尋Menu資料表內的資料
-            var menus = db.Menu.Where(m => m.shopId == selectShop.Id).ToList();
+            //因為Entity Framework有快取(catch)機制，所以導致店家管理修改完菜單資料後，回到主畫面發現資料沒有更新的問題；Shop與Menu為一對多關聯，而先前在ReadShop()方法取得最新的Shop資料表最新資料，但底下被關聯的Menu的集合沒有抓資料庫的資料，而是丟之前快取的資料，所以就用AsNoTracking()強制直接從資料庫取得最新的Menu資料
+			//參考網站：http://howard10335.blogspot.com/2017/02/entity-frameworkcache.html
+            var menus = db.Menu.AsNoTracking().Where(m => m.shopId == selectShop.Id);
 
             //將該店家的菜單顯示到畫面上
             //===========================================
@@ -326,6 +329,12 @@ namespace OrderBentoSystem
             var selectShop = db.Shop.ToList()[CboShopItem.SelectedIndex];
             int shopId = selectShop.Id;
             ShopInfoForm form = new ShopInfoForm(shopId, "查看店家資訊");
+            form.ShowDialog();
+        }
+
+        private void BtnAccount_Click(object sender, EventArgs e)
+        {
+            ModifyUserForm form = new ModifyUserForm(_stuId);
             form.ShowDialog();
         }
     }

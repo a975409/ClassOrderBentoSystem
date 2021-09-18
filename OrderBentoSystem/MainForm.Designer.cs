@@ -78,8 +78,8 @@ namespace OrderBentoSystem
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(964, 650);
-            this.splitContainer1.SplitterDistance = 152;
+            this.splitContainer1.Size = new System.Drawing.Size(975, 651);
+            this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 0;
             // 
             // TxtstuName
@@ -120,7 +120,7 @@ namespace OrderBentoSystem
             this.BtnLogout.ForeColor = System.Drawing.Color.White;
             this.BtnLogout.Location = new System.Drawing.Point(0, 425);
             this.BtnLogout.Name = "BtnLogout";
-            this.BtnLogout.Size = new System.Drawing.Size(152, 85);
+            this.BtnLogout.Size = new System.Drawing.Size(168, 85);
             this.BtnLogout.TabIndex = 5;
             this.BtnLogout.Text = "登出";
             this.BtnLogout.UseVisualStyleBackColor = true;
@@ -135,10 +135,11 @@ namespace OrderBentoSystem
             this.BtnAccount.ForeColor = System.Drawing.Color.White;
             this.BtnAccount.Location = new System.Drawing.Point(0, 340);
             this.BtnAccount.Name = "BtnAccount";
-            this.BtnAccount.Size = new System.Drawing.Size(152, 85);
+            this.BtnAccount.Size = new System.Drawing.Size(168, 85);
             this.BtnAccount.TabIndex = 4;
-            this.BtnAccount.Text = "帳戶管理";
+            this.BtnAccount.Text = "個人帳戶管理";
             this.BtnAccount.UseVisualStyleBackColor = true;
+            this.BtnAccount.Click += new System.EventHandler(this.BtnAccount_Click);
             // 
             // label10
             // 
@@ -147,9 +148,9 @@ namespace OrderBentoSystem
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(8, 515);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 24);
+            this.label10.Size = new System.Drawing.Size(86, 24);
             this.label10.TabIndex = 6;
-            this.label10.Text = "班級";
+            this.label10.Text = "所屬單位";
             // 
             // BtnOrder
             // 
@@ -160,7 +161,7 @@ namespace OrderBentoSystem
             this.BtnOrder.ForeColor = System.Drawing.Color.White;
             this.BtnOrder.Location = new System.Drawing.Point(0, 255);
             this.BtnOrder.Name = "BtnOrder";
-            this.BtnOrder.Size = new System.Drawing.Size(152, 85);
+            this.BtnOrder.Size = new System.Drawing.Size(168, 85);
             this.BtnOrder.TabIndex = 3;
             this.BtnOrder.Text = "個人訂單管理";
             this.BtnOrder.UseVisualStyleBackColor = true;
@@ -175,7 +176,7 @@ namespace OrderBentoSystem
             this.BtnBookmarks.ForeColor = System.Drawing.Color.White;
             this.BtnBookmarks.Location = new System.Drawing.Point(0, 170);
             this.BtnBookmarks.Name = "BtnBookmarks";
-            this.BtnBookmarks.Size = new System.Drawing.Size(152, 85);
+            this.BtnBookmarks.Size = new System.Drawing.Size(168, 85);
             this.BtnBookmarks.TabIndex = 2;
             this.BtnBookmarks.Text = "我的最愛管理";
             this.BtnBookmarks.UseVisualStyleBackColor = true;
@@ -190,7 +191,7 @@ namespace OrderBentoSystem
             this.BtnShopCar.ForeColor = System.Drawing.Color.White;
             this.BtnShopCar.Location = new System.Drawing.Point(0, 85);
             this.BtnShopCar.Name = "BtnShopCar";
-            this.BtnShopCar.Size = new System.Drawing.Size(152, 85);
+            this.BtnShopCar.Size = new System.Drawing.Size(168, 85);
             this.BtnShopCar.TabIndex = 1;
             this.BtnShopCar.Text = "購物車";
             this.BtnShopCar.UseVisualStyleBackColor = true;
@@ -205,7 +206,7 @@ namespace OrderBentoSystem
             this.BtnUpdate.ForeColor = System.Drawing.Color.White;
             this.BtnUpdate.Location = new System.Drawing.Point(0, 0);
             this.BtnUpdate.Name = "BtnUpdate";
-            this.BtnUpdate.Size = new System.Drawing.Size(152, 85);
+            this.BtnUpdate.Size = new System.Drawing.Size(168, 85);
             this.BtnUpdate.TabIndex = 0;
             this.BtnUpdate.Text = "重新整理";
             this.BtnUpdate.UseVisualStyleBackColor = true;
@@ -225,14 +226,14 @@ namespace OrderBentoSystem
             this.splitContainer2.Panel1.Controls.Add(this.BtnClassOrder);
             this.splitContainer2.Panel1.Controls.Add(this.CboShopItem);
             this.splitContainer2.Panel1.Controls.Add(this.label2);
-            this.splitContainer2.Size = new System.Drawing.Size(802, 644);
+            this.splitContainer2.Size = new System.Drawing.Size(795, 644);
             this.splitContainer2.SplitterDistance = 73;
             this.splitContainer2.TabIndex = 7;
             // 
             // BtnShopInfo
             // 
             this.BtnShopInfo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnShopInfo.Location = new System.Drawing.Point(279, 5);
+            this.BtnShopInfo.Location = new System.Drawing.Point(285, 9);
             this.BtnShopInfo.Name = "BtnShopInfo";
             this.BtnShopInfo.Size = new System.Drawing.Size(114, 30);
             this.BtnShopInfo.TabIndex = 7;
@@ -243,7 +244,7 @@ namespace OrderBentoSystem
             // BtnShopList
             // 
             this.BtnShopList.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnShopList.Location = new System.Drawing.Point(646, 6);
+            this.BtnShopList.Location = new System.Drawing.Point(640, 6);
             this.BtnShopList.Name = "BtnShopList";
             this.BtnShopList.Size = new System.Drawing.Size(147, 58);
             this.BtnShopList.TabIndex = 7;
@@ -254,7 +255,7 @@ namespace OrderBentoSystem
             // BtnClassOrder
             // 
             this.BtnClassOrder.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnClassOrder.Location = new System.Drawing.Point(494, 6);
+            this.BtnClassOrder.Location = new System.Drawing.Point(487, 6);
             this.BtnClassOrder.Name = "BtnClassOrder";
             this.BtnClassOrder.Size = new System.Drawing.Size(147, 58);
             this.BtnClassOrder.TabIndex = 7;
@@ -266,7 +267,7 @@ namespace OrderBentoSystem
             // 
             this.CboShopItem.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.CboShopItem.FormattingEnabled = true;
-            this.CboShopItem.Location = new System.Drawing.Point(74, 6);
+            this.CboShopItem.Location = new System.Drawing.Point(80, 10);
             this.CboShopItem.Name = "CboShopItem";
             this.CboShopItem.Size = new System.Drawing.Size(201, 28);
             this.CboShopItem.TabIndex = 6;
@@ -277,20 +278,20 @@ namespace OrderBentoSystem
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Location = new System.Drawing.Point(9, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 26);
             this.label2.TabIndex = 5;
             this.label2.Text = "店家：";
             // 
-            // MenuForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 650);
+            this.ClientSize = new System.Drawing.Size(975, 651);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MenuForm";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuForm_FormClosing);
             this.Load += new System.EventHandler(this.MenuForm_Load);

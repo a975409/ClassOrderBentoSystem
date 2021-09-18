@@ -120,6 +120,7 @@ namespace OrderBentoSystem
             this.Name = "ShopCarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "購物車";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShopCarForm_FormClosing);
             this.Load += new System.EventHandler(this.ShopCarForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

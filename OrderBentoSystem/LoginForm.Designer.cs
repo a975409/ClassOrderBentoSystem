@@ -31,13 +31,13 @@ namespace OrderBentoSystem
         {
             this.TxtId = new System.Windows.Forms.TextBox();
             this.TxtPwd = new System.Windows.Forms.TextBox();
-            this.LinkResetPwd = new System.Windows.Forms.LinkLabel();
+            this.LinkResetUser = new System.Windows.Forms.LinkLabel();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnExit = new System.Windows.Forms.Button();
             this.LblMsg = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.LinkCreateUser = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // TxtId
@@ -52,30 +52,31 @@ namespace OrderBentoSystem
             // TxtPwd
             // 
             this.TxtPwd.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TxtPwd.Location = new System.Drawing.Point(29, 121);
+            this.TxtPwd.Location = new System.Drawing.Point(29, 120);
             this.TxtPwd.Name = "TxtPwd";
             this.TxtPwd.PasswordChar = '*';
             this.TxtPwd.Size = new System.Drawing.Size(420, 33);
             this.TxtPwd.TabIndex = 1;
             this.TxtPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnLogin_KeyDown);
             // 
-            // LinkResetPwd
+            // LinkResetUser
             // 
-            this.LinkResetPwd.ActiveLinkColor = System.Drawing.Color.DeepPink;
-            this.LinkResetPwd.AutoSize = true;
-            this.LinkResetPwd.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LinkResetPwd.LinkColor = System.Drawing.Color.Aqua;
-            this.LinkResetPwd.Location = new System.Drawing.Point(337, 157);
-            this.LinkResetPwd.Name = "LinkResetPwd";
-            this.LinkResetPwd.Size = new System.Drawing.Size(112, 20);
-            this.LinkResetPwd.TabIndex = 2;
-            this.LinkResetPwd.TabStop = true;
-            this.LinkResetPwd.Text = "忘記帳號/密碼";
+            this.LinkResetUser.ActiveLinkColor = System.Drawing.Color.DeepPink;
+            this.LinkResetUser.AutoSize = true;
+            this.LinkResetUser.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LinkResetUser.LinkColor = System.Drawing.Color.Aqua;
+            this.LinkResetUser.Location = new System.Drawing.Point(252, 156);
+            this.LinkResetUser.Name = "LinkResetUser";
+            this.LinkResetUser.Size = new System.Drawing.Size(112, 20);
+            this.LinkResetUser.TabIndex = 2;
+            this.LinkResetUser.TabStop = true;
+            this.LinkResetUser.Text = "忘記帳號/密碼";
+            this.LinkResetUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkResetUser_LinkClicked);
             // 
             // BtnLogin
             // 
             this.BtnLogin.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnLogin.Location = new System.Drawing.Point(245, 223);
+            this.BtnLogin.Location = new System.Drawing.Point(245, 216);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(130, 35);
             this.BtnLogin.TabIndex = 3;
@@ -109,7 +110,7 @@ namespace OrderBentoSystem
             // BtnExit
             // 
             this.BtnExit.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnExit.Location = new System.Drawing.Point(109, 223);
+            this.BtnExit.Location = new System.Drawing.Point(109, 216);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(130, 35);
             this.BtnExit.TabIndex = 3;
@@ -122,40 +123,41 @@ namespace OrderBentoSystem
             this.LblMsg.BackColor = System.Drawing.Color.Yellow;
             this.LblMsg.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LblMsg.ForeColor = System.Drawing.Color.Red;
-            this.LblMsg.Location = new System.Drawing.Point(28, 186);
+            this.LblMsg.Location = new System.Drawing.Point(28, 185);
             this.LblMsg.Name = "LblMsg";
             this.LblMsg.Size = new System.Drawing.Size(421, 25);
             this.LblMsg.TabIndex = 5;
             this.LblMsg.Text = "請輸入帳號密碼";
             this.LblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // linkLabel1
+            // LinkCreateUser
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.DeepPink;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Aqua;
-            this.linkLabel1.Location = new System.Drawing.Point(376, 19);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(73, 20);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "註冊帳號";
+            this.LinkCreateUser.ActiveLinkColor = System.Drawing.Color.DeepPink;
+            this.LinkCreateUser.AutoSize = true;
+            this.LinkCreateUser.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LinkCreateUser.LinkColor = System.Drawing.Color.Aqua;
+            this.LinkCreateUser.Location = new System.Drawing.Point(143, 156);
+            this.LinkCreateUser.Name = "LinkCreateUser";
+            this.LinkCreateUser.Size = new System.Drawing.Size(73, 20);
+            this.LinkCreateUser.TabIndex = 2;
+            this.LinkCreateUser.TabStop = true;
+            this.LinkCreateUser.Text = "註冊帳號";
+            this.LinkCreateUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkCreateUser_LinkClicked);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(481, 274);
+            this.ClientSize = new System.Drawing.Size(481, 269);
+            this.Controls.Add(this.TxtPwd);
+            this.Controls.Add(this.LinkResetUser);
             this.Controls.Add(this.LblMsg);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnLogin);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.LinkResetPwd);
-            this.Controls.Add(this.TxtPwd);
+            this.Controls.Add(this.LinkCreateUser);
             this.Controls.Add(this.TxtId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
@@ -171,13 +173,13 @@ namespace OrderBentoSystem
         #endregion
         private System.Windows.Forms.TextBox TxtId;
         private System.Windows.Forms.TextBox TxtPwd;
-        private System.Windows.Forms.LinkLabel LinkResetPwd;
+        private System.Windows.Forms.LinkLabel LinkResetUser;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Label LblMsg;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel LinkCreateUser;
     }
 }
 

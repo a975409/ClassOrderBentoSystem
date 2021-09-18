@@ -179,6 +179,7 @@ namespace OrderBentoSystem
             this.Name = "OrderDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "訂單詳細資訊";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrderDetailForm_FormClosing);
             this.Load += new System.EventHandler(this.OrderDetailForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

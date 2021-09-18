@@ -38,6 +38,8 @@ namespace OrderBentoSystem
             this.LinkLblBack = new System.Windows.Forms.LinkLabel();
             this.BtnBentoOrder = new System.Windows.Forms.Button();
             this.saveOrderDialog = new System.Windows.Forms.SaveFileDialog();
+            this.BtnCheckAll = new System.Windows.Forms.Button();
+            this.BtnCancelCheckAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -64,37 +66,37 @@ namespace OrderBentoSystem
             // FLPShowOrder
             // 
             this.FLPShowOrder.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FLPShowOrder.Location = new System.Drawing.Point(7, 55);
+            this.FLPShowOrder.Location = new System.Drawing.Point(7, 99);
             this.FLPShowOrder.Name = "FLPShowOrder";
-            this.FLPShowOrder.Size = new System.Drawing.Size(718, 470);
+            this.FLPShowOrder.Size = new System.Drawing.Size(718, 413);
             this.FLPShowOrder.TabIndex = 10;
             // 
             // BtnCheck
             // 
             this.BtnCheck.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnCheck.Location = new System.Drawing.Point(485, 7);
+            this.BtnCheck.Location = new System.Drawing.Point(602, 7);
             this.BtnCheck.Name = "BtnCheck";
-            this.BtnCheck.Size = new System.Drawing.Size(118, 43);
+            this.BtnCheck.Size = new System.Drawing.Size(123, 43);
             this.BtnCheck.TabIndex = 11;
-            this.BtnCheck.Text = "批次確認";
+            this.BtnCheck.Text = "確認訂單";
             this.BtnCheck.UseVisualStyleBackColor = true;
             this.BtnCheck.Click += new System.EventHandler(this.BtnCheck_Click);
             // 
             // BtnCancel
             // 
             this.BtnCancel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnCancel.Location = new System.Drawing.Point(609, 7);
+            this.BtnCancel.Location = new System.Drawing.Point(602, 53);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(118, 43);
+            this.BtnCancel.Size = new System.Drawing.Size(123, 43);
             this.BtnCancel.TabIndex = 11;
-            this.BtnCancel.Text = "批次取消";
+            this.BtnCancel.Text = "取消訂單";
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // LinkLblNext
             // 
             this.LinkLblNext.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LinkLblNext.Location = new System.Drawing.Point(368, 528);
+            this.LinkLblNext.Location = new System.Drawing.Point(367, 515);
             this.LinkLblNext.Name = "LinkLblNext";
             this.LinkLblNext.Size = new System.Drawing.Size(126, 37);
             this.LinkLblNext.TabIndex = 12;
@@ -106,7 +108,7 @@ namespace OrderBentoSystem
             // LinkLblBack
             // 
             this.LinkLblBack.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LinkLblBack.Location = new System.Drawing.Point(243, 528);
+            this.LinkLblBack.Location = new System.Drawing.Point(242, 515);
             this.LinkLblBack.Name = "LinkLblBack";
             this.LinkLblBack.Size = new System.Drawing.Size(119, 37);
             this.LinkLblBack.TabIndex = 13;
@@ -118,24 +120,48 @@ namespace OrderBentoSystem
             // BtnBentoOrder
             // 
             this.BtnBentoOrder.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BtnBentoOrder.Location = new System.Drawing.Point(351, 7);
+            this.BtnBentoOrder.Location = new System.Drawing.Point(321, 7);
             this.BtnBentoOrder.Name = "BtnBentoOrder";
-            this.BtnBentoOrder.Size = new System.Drawing.Size(128, 43);
+            this.BtnBentoOrder.Size = new System.Drawing.Size(189, 43);
             this.BtnBentoOrder.TabIndex = 11;
-            this.BtnBentoOrder.Text = "匯出訂購單";
+            this.BtnBentoOrder.Text = "匯出已確認的訂單";
             this.BtnBentoOrder.UseVisualStyleBackColor = true;
             this.BtnBentoOrder.Click += new System.EventHandler(this.BtnBentoOrder_Click);
+            // 
+            // BtnCheckAll
+            // 
+            this.BtnCheckAll.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.BtnCheckAll.Location = new System.Drawing.Point(7, 52);
+            this.BtnCheckAll.Name = "BtnCheckAll";
+            this.BtnCheckAll.Size = new System.Drawing.Size(70, 43);
+            this.BtnCheckAll.TabIndex = 11;
+            this.BtnCheckAll.Text = "全選";
+            this.BtnCheckAll.UseVisualStyleBackColor = true;
+            this.BtnCheckAll.Click += new System.EventHandler(this.BtnCheckAll_Click);
+            // 
+            // BtnCancelCheckAll
+            // 
+            this.BtnCancelCheckAll.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.BtnCancelCheckAll.Location = new System.Drawing.Point(83, 52);
+            this.BtnCancelCheckAll.Name = "BtnCancelCheckAll";
+            this.BtnCancelCheckAll.Size = new System.Drawing.Size(117, 43);
+            this.BtnCancelCheckAll.TabIndex = 11;
+            this.BtnCancelCheckAll.Text = "取消全選";
+            this.BtnCancelCheckAll.UseVisualStyleBackColor = true;
+            this.BtnCancelCheckAll.Click += new System.EventHandler(this.BtnCancelCheckAll_Click);
             // 
             // ClassOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(732, 567);
+            this.ClientSize = new System.Drawing.Size(732, 556);
             this.Controls.Add(this.LinkLblNext);
             this.Controls.Add(this.LinkLblBack);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnBentoOrder);
+            this.Controls.Add(this.BtnCancelCheckAll);
+            this.Controls.Add(this.BtnCheckAll);
             this.Controls.Add(this.BtnCheck);
             this.Controls.Add(this.FLPShowOrder);
             this.Controls.Add(this.CboDate);
@@ -146,6 +172,7 @@ namespace OrderBentoSystem
             this.Name = "ClassOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "班級訂單管理";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClassOrderForm_FormClosing);
             this.Load += new System.EventHandler(this.ClassOrderForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -162,5 +189,7 @@ namespace OrderBentoSystem
         private System.Windows.Forms.LinkLabel LinkLblBack;
         private System.Windows.Forms.Button BtnBentoOrder;
         private System.Windows.Forms.SaveFileDialog saveOrderDialog;
+        private System.Windows.Forms.Button BtnCheckAll;
+        private System.Windows.Forms.Button BtnCancelCheckAll;
     }
 }

@@ -75,5 +75,10 @@ namespace OrderBentoSystem
             MessageBox.Show("移除成功");
             ReadShopList();
         }
+
+        private void ShopMarageForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

@@ -121,6 +121,7 @@ namespace OrderBentoSystem
         private void ShopInfoForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             _db.Dispose();
+            this.Dispose();
         }
     }
 }

@@ -102,9 +102,11 @@ namespace OrderBentoSystem
 
             var detial = _db.FavoriteDetial.Where(m => m.FavoriteId == favoriteId);
 
-
             foreach (var item in detial)
             {
+                if (item.MenuId == null)
+                    continue;
+
                 OrderDetial orderDetial = new OrderDetial
                 {
                     Menu = item.Menu,
@@ -120,6 +122,11 @@ namespace OrderBentoSystem
 
             _db.SaveChanges();
             MessageBox.Show("新增成功");
+        }
+
+        private void FavoriteForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

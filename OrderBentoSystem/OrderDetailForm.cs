@@ -75,13 +75,15 @@ namespace OrderBentoSystem
             var order = _db.Order.Find(_orderId);
             var orderDetial = _db.OrderDetial.Where(m => m.OrderId == _orderId);
 
-            if (order.OrderState >= 0 && order.OrderState <= 1)
+            if (order.OrderState >= 0)
                 BtnCancel.Enabled = true;
             else
                 BtnCancel.Enabled = false;
 
-            OrderView view = new OrderView();
-            view.orderState = order.OrderState.ToString();
+            OrderView view = new OrderView
+            {
+                orderState = order.OrderState.ToString()
+            };
 
             TxtOrderState.Text = view.orderState;
             TxtOrderDate.Text = order.OrderDate.ToString("d");
@@ -89,6 +91,12 @@ namespace OrderBentoSystem
 
             foreach (var item in orderDetial)
             {
+                if (item.MenuId == null)
+                {
+                    LsvOrderDetial.Items.Add(new ListViewItem("此商品已下架"));
+                    continue;
+                }
+
                 var menu = _db.Menu.Find(item.MenuId);
                 var shop = menu.Shop;
 
@@ -124,6 +132,11 @@ namespace OrderBentoSystem
             order.OrderState = 4;
             _db.SaveChanges();
             this.Close();
+        }
+
+        private void OrderDetailForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

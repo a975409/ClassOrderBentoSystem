@@ -213,7 +213,7 @@ namespace OrderBentoSystem
             // 
             // PicMenu
             // 
-            this.PicMenu.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.PicMenu.BackColor = System.Drawing.Color.White;
             this.PicMenu.Location = new System.Drawing.Point(7, 19);
             this.PicMenu.Name = "PicMenu";
             this.PicMenu.Size = new System.Drawing.Size(150, 150);

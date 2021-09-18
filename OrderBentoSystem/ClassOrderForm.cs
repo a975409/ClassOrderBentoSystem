@@ -19,7 +19,7 @@ namespace OrderBentoSystem
         int Page;//目前所在頁數
         const int page_Len = 5;//限制每一頁顯示的資料筆數
         DateTime selectDate;
-
+        List<CheckBox> checkBoxes = new List<CheckBox>();
         OrderBentoSystemEntities _db;
 
         public ClassOrderForm(int classId, OrderBentoSystemEntities db)
@@ -31,11 +31,12 @@ namespace OrderBentoSystem
 
         private void ClassOrderForm_Load(object sender, EventArgs e)
         {
+            this.Text = _db.ClassRoom.Find(_classId).className + "的訂單管理";
             saveOrderDialog.Filter = "All Txt Files| *.txt";
             saveOrderDialog.DefaultExt = "*.txt";
             Page = 1;
-            FLPShowOrder.Size = new Size(748, 632);
-            FLPShowOrder.Location = new Point(7, 55);
+            //FLPShowOrder.Size = new Size(718, 470);
+            FLPShowOrder.Location = new Point(7, 99);
             FLPShowOrder.FlowDirection = FlowDirection.TopDown;
             GetOrderDateToCbox();
         }
@@ -52,7 +53,7 @@ namespace OrderBentoSystem
                 return;
             }
 
-            var strDateArray = dateList.Distinct().Select(m => m.ToString()).ToArray();
+            var strDateArray = dateList.Distinct().OrderByDescending(m=>m).Select(m => m.ToString()).ToArray();
 
             CboDate.Items.AddRange(strDateArray);
             CboDate.SelectedIndex = 0;
@@ -81,6 +82,7 @@ namespace OrderBentoSystem
             }
 
             FLPShowOrder.Controls.Clear();
+            checkBoxes.Clear();
             var orderPage = order.OrderByDescending(m => m.InsertOrderDateTime).Skip((Page - 1) * page_Len).Take(page_Len);
 
             foreach (var item in orderPage)
@@ -88,8 +90,12 @@ namespace OrderBentoSystem
                 int totalPrice = 0;
                 var orderdetial = _db.OrderDetial.Where(m => m.OrderId == item.Id);
 
+                //計算總價
                 foreach (var detial in orderdetial)
                 {
+                    if (detial.MenuId == null)
+                        continue;
+
                     var menu = _db.Menu.Find(detial.MenuId);
                     totalPrice += menu.UnitPrice * detial.Num;
                 }
@@ -139,11 +145,12 @@ namespace OrderBentoSystem
                 Enabled = false
             };
 
-            if (view.orderState == "待確認" || view.orderState == "已確認")
+            if (view.orderState == "待確認")
             {
                 chk.Enabled = true;
             }
 
+            checkBoxes.Add(chk);
             box.Controls.Add(chk);
 
             Label[] valueLabels = {
@@ -167,6 +174,7 @@ namespace OrderBentoSystem
 
             FLPShowOrder.Controls.Add(box);
         }
+
 
         /// <summary>
         /// 查看訂單詳細資料
@@ -232,23 +240,14 @@ namespace OrderBentoSystem
 
             bool update = false;
 
-            foreach (var item in FLPShowOrder.Controls)
+            foreach (var item in checkBoxes)
             {
-                GroupBox box = (GroupBox)item;
-                foreach (var a in box.Controls)
+                if (item.Checked)
                 {
-                    if (a is CheckBox)
-                    {
-                        var checkbox = (CheckBox)a;
-                        if (checkbox.Checked)
-                        {
-                            update = true;
-                            int orderId = (int)checkbox.Tag;
-                            var order = _db.Order.Find(orderId);
-                            order.OrderState = 1;
-                        }
-                        break;
-                    }
+                    update = true;
+                    int orderId = (int)item.Tag;
+                    var order = _db.Order.Find(orderId);
+                    order.OrderState = 1;
                 }
             }
             if (update)
@@ -272,23 +271,14 @@ namespace OrderBentoSystem
 
             bool update = false;
 
-            foreach (var item in FLPShowOrder.Controls)
+            foreach (var item in checkBoxes)
             {
-                GroupBox box = (GroupBox)item;
-                foreach (var a in box.Controls)
+                if (item.Checked)
                 {
-                    if (a is CheckBox)
-                    {
-                        var checkbox = (CheckBox)a;
-                        if (checkbox.Checked)
-                        {
-                            update = true;
-                            int orderId = (int)checkbox.Tag;
-                            var order = _db.Order.Find(orderId);
-                            order.OrderState = 4;
-                        }
-                        break;
-                    }
+                    update = true;
+                    int orderId = (int)item.Tag;
+                    var order = _db.Order.Find(orderId);
+                    order.OrderState = 4;
                 }
             }
 
@@ -304,9 +294,14 @@ namespace OrderBentoSystem
             }
         }
 
+        /// <summary>
+        /// 匯出已確認的訂購單
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnBentoOrder_Click(object sender, EventArgs e)
         {
-            List<ClassOrder> orderList = new List<ClassOrder>(); 
+            List<ClassOrder> orderList = new List<ClassOrder>(); //已確認的訂單
             string className = _db.ClassRoom.Find(_classId).className;
             DateTime dateTime = DateTime.Now;
             saveOrderDialog.FileName = className + "的便當訂購單_" + dateTime.ToString("yyyyMMdd_HHmmss") + ".txt";
@@ -325,46 +320,38 @@ namespace OrderBentoSystem
                 writer.WriteLine("訂購時間：" + dateTime.ToString("G"));
                 writer.WriteLine("------------------------------------------------");
 
-                foreach (var item in FLPShowOrder.Controls)
+                var orders = _db.Order.Where(m => m.Student.classId == _classId && m.OrderDate == selectDate);
+
+                foreach (var item in orders)
                 {
-                    GroupBox box = (GroupBox)item;
-                    foreach (var a in box.Controls)
+                    //確認該訂單是否勾選
+                    if (item.OrderState==1)
                     {
-                        //尋找CheckBox控制項，找到就退出
-                        if (a is CheckBox)
+                        var orderDetials = _db.OrderDetial.Where(m => m.OrderId == item.Id);
+                        var detialGroup = orderDetials.GroupBy(m => m.MenuId);
+
+                        //找出該訂單的所有菜色 & 該菜色的數量
+                        foreach (var detial in detialGroup)
                         {
-                            var checkbox = (CheckBox)a;
+                            int count = 0;//該菜色的便當數量
+                            
+                            foreach (var detialItem in detial)
+                                count += detialItem.Num;
 
-                            //確認該訂單是否勾選
-                            if (checkbox.Checked)
+                            ClassOrder classOrder = new ClassOrder
                             {
-                                int orderId = (int)checkbox.Tag;
-                                var orderDetials = _db.OrderDetial.Where(m => m.OrderId == orderId);
-                                var detialGroup = orderDetials.GroupBy(m => m.MenuId);
+                                menuId = (int)detial.Key,
+                                count = count
+                            };
 
-                                //找出該訂單所選的菜色 & 該菜色的數量
-                                foreach (var detial in detialGroup)
-                                {
-                                    int count = 0;
-                                    ClassOrder classOrder = new ClassOrder();
+                            if (orderList.Count == 0 || !(orderList.Any(m => m.menuId == classOrder.menuId)))
+                                orderList.Add(classOrder);
+                            else
+                            {
+                                int index = orderList.FindIndex(m => m.menuId == classOrder.menuId);
 
-                                    foreach (var detialItem in detial)
-                                        count += detialItem.Num;
-                                    
-                                    classOrder.menuId = detial.Key;
-                                    classOrder.count = count;
-
-                                    if (orderList.Count == 0 || !(orderList.Any(m => m.menuId == classOrder.menuId)))
-                                        orderList.Add(classOrder);
-                                    else
-                                    {
-                                        int index = orderList.FindIndex(m => m.menuId == classOrder.menuId);
-
-                                        orderList[index].count += count;
-                                    }
-                                }
+                                orderList[index].count += count;
                             }
-                            break;
                         }
                     }
                 }
@@ -384,6 +371,45 @@ namespace OrderBentoSystem
             }
 
             MessageBox.Show("匯出成功");
+        }
+
+        /// <summary>
+        /// 全部勾選
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnCheckAll_Click(object sender, EventArgs e)
+        {
+            foreach (var item in checkBoxes)
+            {
+                if (item.Enabled == false)
+                    continue;
+
+                if (item.Checked == false)
+                    item.Checked = true;
+            }
+        }
+
+        /// <summary>
+        /// 全部取消勾選
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnCancelCheckAll_Click(object sender, EventArgs e)
+        {
+            foreach (var item in checkBoxes)
+            {
+                if (item.Enabled == false)
+                    continue;
+
+                if (item.Checked == true)
+                    item.Checked = false;
+            }
+        }
+
+        private void ClassOrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
